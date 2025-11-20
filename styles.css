@@ -1,0 +1,162 @@
+/* Styles for Daniel's portfolio (Everything tech) */
+:root{
+  --bg:#07070b;
+  --panel:#0d1117;
+  --muted:#9aa3b2;
+  --accent1:#00ffa3;
+  --accent2:#66d2ff;
+  --glass: rgba(255,255,255,0.03);
+  --radius:14px;
+  --maxw:1100px;
+  font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  color-scheme: dark;
+}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  background: radial-gradient(1200px 500px at 10% 10%, rgba(34,51,78,0.12), transparent),
+              linear-gradient(180deg, rgba(6,7,10,1), rgba(8,10,14,1));
+  color:#e6eef6;
+  font-size:16px;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+}
+
+/* Background canvas + nebula overlay */
+#bg{position:fixed;inset:0;z-index:-2;overflow:hidden}
+#bg canvas{position:absolute;inset:0;width:100%;height:100%;opacity:0.55}
+.nebula{position:absolute;inset:0;background:
+  radial-gradient(600px 200px at 85% 15%, rgba(102,210,255,0.06), transparent),
+  radial-gradient(400px 160px at 20% 80%, rgba(0,255,163,0.02), transparent);
+  mix-blend-mode:screen;pointer-events:none}
+
+/* Container */
+.container{max-width:var(--maxw);margin:0 auto;padding:24px}
+
+/* Topbar */
+.topbar{position:sticky;top:0;backdrop-filter: blur(8px);z-index:40}
+.topbar-inner{display:flex;align-items:center;justify-content:space-between;gap:16px}
+.brand{display:flex;align-items:center;gap:12px}
+.brand h1{font-size:18px;margin:0}
+.brand .muted{font-size:12px;color:var(--muted);margin-top:2px}
+.logo{width:44px;height:44px;color:var(--accent2);}
+
+/* Navigation */
+.nav{display:flex;gap:12px;align-items:center}
+.nav a{color:var(--muted);text-decoration:none;padding:8px 10px;border-radius:8px;font-size:14px}
+.nav a:hover{color:var(--accent2)}
+.btn-outline{border:1px solid rgba(255,255,255,0.06);padding:8px 12px;border-radius:10px;color:var(--accent1);text-decoration:none}
+
+/* Hamburger for mobile */
+.hamburger{display:none;background:none;border:0;padding:8px}
+.hamburger span{display:block;width:22px;height:2px;background:var(--muted);margin:4px 0;border-radius:2px}
+
+/* Main grid */
+.main-grid{display:grid;grid-template-columns:1fr;gap:20px;padding:28px 24px}
+@media(min-width:980px){
+  .main-grid{grid-template-columns: 1.25fr 520px}
+}
+
+/* Cards */
+.card{
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.015));
+  border: 1px solid rgba(255,255,255,0.03);
+  padding:20px;
+  border-radius:var(--radius);
+  box-shadow: 0 8px 24px rgba(2,6,23,0.6);
+  overflow:hidden;
+}
+
+/* Hero */
+.hero{display:flex;flex-direction:column;gap:18px;align-items:stretch}
+@media(min-width:980px){
+  .hero{flex-direction:row;align-items:stretch}
+  .hero-left{flex:1;padding-right:12px}
+  .hero-right{width:420px}
+}
+.lead{font-size:1.02rem;color:#d9e8f6;line-height:1.5}
+.contact-line{list-style:none;padding:0;margin:14px 0 8px 0;display:flex;flex-direction:column;gap:6px}
+.contact-line a{color:var(--accent2);text-decoration:none}
+.cta-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
+.cta{background:linear-gradient(90deg,var(--accent2),var(--accent1));padding:10px 14px;border-radius:10px;color:#04111a;text-decoration:none;font-weight:600}
+.cta.ghost{background:transparent;border:1px solid rgba(255,255,255,0.04);color:var(--accent2)}
+.download{background:transparent;border:0;color:var(--muted);text-decoration:underline;font-size:14px}
+
+/* Profile card */
+.profile-card{background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);padding:18px;border-radius:12px}
+.profile-header{display:flex;gap:12px;align-items:center}
+.avatar{width:68px;height:68px;border-radius:12px;display:grid;place-items:center;border:1px solid rgba(255,255,255,0.03)}
+.quick-stats{display:flex;gap:10px;margin-top:12px}
+.quick-stats .stat{font-weight:700;background:linear-gradient(90deg, rgba(255,255,255,0.02), transparent);padding:8px 12px;border-radius:10px;color:var(--accent1)}
+
+/* Chips */
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.chips span{background:rgba(255,255,255,0.02);padding:6px 10px;border-radius:999px;font-size:13px;color:var(--muted)}
+
+/* Skills grid */
+.skill-grid{display:grid;grid-template-columns:repeat(1,1fr);gap:12px}
+@media(min-width:720px){.skill-grid{grid-template-columns:repeat(2,1fr)}}
+.skill{background:linear-gradient(180deg, rgba(255,255,255,0.01), transparent);padding:12px;border-radius:10px;border:1px solid rgba(255,255,255,0.02)}
+.skill h4{margin:0 0 6px 0}
+
+/* Projects grid */
+.projects-grid{display:grid;grid-template-columns:1fr;gap:12px;margin-top:14px}
+@media(min-width:720px){.projects-grid{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:1100px){.projects-grid{grid-template-columns:repeat(4,1fr)}}
+
+.project-card{display:flex;gap:12px;align-items:flex-start;background:linear-gradient(180deg, rgba(255,255,255,0.012), transparent);padding:12px;border-radius:10px;border:1px solid rgba(255,255,255,0.02)}
+.thumb{width:120px;height:80px;border-radius:8px;overflow:hidden;flex-shrink:0;border:1px solid rgba(255,255,255,0.03)}
+.proj-body h4{margin:0 0 6px 0}
+.proj-body .muted{margin:0 0 8px 0}
+.tags{display:flex;gap:6px;flex-wrap:wrap}
+.tags span{background:rgba(102,210,255,0.06);padding:4px 8px;border-radius:6px;font-size:12px;color:var(--muted)}
+
+/* Experience & other lists */
+.exp{margin-bottom:14px}
+.muted{color:var(--muted)}
+.small{font-size:13px}
+.cert-list{list-style:disc;padding-left:18px;margin:8px 0}
+
+/* refs grid */
+.refs-grid{display:grid;grid-template-columns:1fr;gap:10px}
+@media(min-width:720px){.refs-grid{grid-template-columns:repeat(3,1fr)}}
+.ref{background:rgba(255,255,255,0.015);padding:10px;border-radius:10px}
+
+/* contact form */
+.contact-form{display:grid;gap:10px;margin-top:10px}
+.contact-form label{display:block}
+.contact-form input, .contact-form textarea{
+  width:100%;padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);
+  background:transparent;color:inherit;font-size:15px
+}
+.form-row{display:flex;gap:10px;align-items:center}
+.form-row .cta{padding:10px 16px}
+.form-row .btn-outline{padding:8px 12px}
+
+/* highlight card */
+.highlight{border:1px solid rgba(0,255,163,0.06);box-shadow:0 6px 26px rgba(0,255,163,0.03)}
+
+/* footer */
+.site-footer{padding:20px 0;color:var(--muted);text-align:center;margin-top:20px}
+
+/* small screens adjustments */
+@media(max-width:979px){
+  .nav{display:none}
+  .hamburger{display:block}
+  .main-grid{padding:18px}
+}
+
+/* accessibility focus states */
+a:focus, button:focus, input:focus, textarea:focus{
+  outline:2px solid rgba(102,210,255,0.15);
+  outline-offset:2px;
+}
+
+/* subtle entrance animations */
+.card{transform:translateY(6px);opacity:0;animation:enter 700ms cubic-bezier(.22,.9,.3,1) forwards}
+.card:nth-of-type(1){animation-delay:80ms}
+.card:nth-of-type(2){animation-delay:120ms}
+.card:nth-of-type(3){animation-delay:160ms}
+@keyframes enter{to{transform:none;opacity:1}}
