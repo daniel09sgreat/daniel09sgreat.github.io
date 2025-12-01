@@ -121,9 +121,9 @@ body{
 
 /* refs grid */
 .refs-grid{display:grid;grid-template-columns:1fr;gap:10px; height: auto; overflow: visible;  width: 100%;
-  box-sizing: border-box; padding: 0;}
+  box-sizing: border-box;}
 @media(min-width:720px){.refs-grid{grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)) !important;}
-.ref{background:rgba(255,255,255,0.015);padding:10px;border-radius:10px;  box-sizing: border-box; word-break: break-word;}
+.ref{background:rgba(255,255,255,0.015);padding:10px;border-radius:10px;  box-sizing: border-box; word-break: break-word; display: flex; flex-direction: column;}
 
 /* contact form */
 .contact-form{display:grid;gap:10px;margin-top:10px}
