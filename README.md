@@ -1,2 +1,2 @@
-# daniel.github.io
+# daniel09sgreat.github.io
 Everything about my tech journey.
